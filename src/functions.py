@@ -5,16 +5,6 @@
 # Farenheit
 # Kelvin
 
-# LENGTH / DISTANCE:
-# millimeters
-# centimeters
-# meters
-# kilometers
-# inches
-# feet
-# yards
-# miles
-
 # the distionary key corresponds to 1 unit of that measurement (eg. 1 millimeter), and the corresponding value is how many meters is in that 1 unit.
 lengths_distances = {
     "millimeter": 0.001,
@@ -27,25 +17,33 @@ lengths_distances = {
     "mile": 1609.34
 }
 
-def convert_length():
-    value = float(input('Please enter a value to convert: '))
-    from_unit = input('Please enter the unit to convert from: ')
-    to_unit = input('Please enter the unit to convert to: ')
+def convert_length(value, from_unit, to_unit):
     # firsly I want to convert the value into meters:
     meters = value * lengths_distances[from_unit]
 
     # then back into the result unit:
     converted_value = meters / lengths_distances[to_unit]
 
-    print(f'Your value of {value} in {from_unit}s was converted to {to_unit}s with a value of {converted_value}')
+    print(f'{value} {from_unit}s equals to {converted_value} {to_unit}s')
 
-# WEIGHT / MASS:
-# milligrams
-# grams
-# kilograms
-# ounces
-# pounds
-# tons
+
+weight_mass = {
+    "milligram": 0.001,
+    "gram": 1,
+    "kilogram": 1000,
+    "ounce": 28.3495,
+    "pound": 453.592,
+    "tonne": 1000000
+}
+
+def convert_weight(value, to_unit, from_unit):
+    #firstly we convert the value into grams:
+    grams = value * weight_mass[from_unit]
+    #then into the desired unit:
+    converted_value = grams / weight_mass[to_unit]
+    print(f'{value} {from_unit}s equals to {converted_value} {to_unit}s')
+    return converted_value
+
 
 # VOLUME / CAPACITY:
 # milliliters
