@@ -64,15 +64,6 @@ def convert_volume(value, from_unit, to_unit):
     rounded_value = round(converted_value, 2)
     return rounded_value
 
-# TIME:
-# seconds
-# minutes
-# hours
-# days
-# weeks
-# months
-# years
-
 time_units = {
     "second": 0.000277778,
     "minute": 0.0166667,
@@ -83,16 +74,39 @@ time_units = {
     "year": 8760
 }
 
-# SPEED:
-# meters per second
-# kilometers per hour
-# miles per hour
+def convert_time(value, from_unit, to_unit):
+    hour = value * time_units[from_unit]
+    converted_value = hour / time_units[to_unit]
+    rounded_value = round(converted_value, 2)
+    return rounded_value
 
-# AREA:
-# square meter
-# square kilometer
-# square mile
-# square yard
-# square foot
-# hectare
-# acre
+# with reference to meter per second
+speed_units = {
+    "meter per second": 1,
+    "kilometer per hour": 0.277778,
+    "mile per hour": 0.44704
+}
+
+def convert_speed(value, from_unit, to_unit):
+    meter = value * speed_units[from_unit]
+    converted_value = meter / speed_units[to_unit]
+    rounded_value = round(converted_value, 2)
+    print(f'{value} {from_unit}s equals to {rounded_value} {to_unit}s')
+    return rounded_value
+
+area_units = {
+    "square meter": 1,
+    "square kilometer": 1000000,
+    "square mile": 2590000,
+    "square yard": 0.836127,
+    "square foot": 0.092903,
+    "hectare": 10000,
+    "acre": 4046.86
+}
+
+def convert_area(value, from_unit, to_unit):
+    sq_meter = value * area_units[from_unit]
+    converted_value = sq_meter / area_units[to_unit]
+    rounded_value = round(converted_value, 2)
+    print(f'{value} {from_unit}s equals to {rounded_value} {to_unit}s')
+    return rounded_value
