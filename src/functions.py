@@ -23,9 +23,9 @@ def convert_length(value, from_unit, to_unit):
 
     # then back into the result unit:
     converted_value = meters / lengths_distances[to_unit]
-
-    print(f'{value} {from_unit}s equals to {converted_value} {to_unit}s')
-
+    rounded_value = round(converted_value, 2)
+    print(f'{value} {from_unit}s equals to {rounded_value} {to_unit}s')
+    return rounded_value
 
 weight_mass = {
     "milligram": 0.001,
@@ -36,23 +36,33 @@ weight_mass = {
     "tonne": 1000000
 }
 
-def convert_weight(value, to_unit, from_unit):
+def convert_weight(value, from_unit, to_unit):
     #firstly we convert the value into grams:
     grams = value * weight_mass[from_unit]
     #then into the desired unit:
     converted_value = grams / weight_mass[to_unit]
-    print(f'{value} {from_unit}s equals to {converted_value} {to_unit}s')
-    return converted_value
+    rounded_value = round(converted_value, 2)
+    print(f'{value} {from_unit}s equals to {rounded_value} {to_unit}s')
+    return rounded_value
 
+# corresponds to how many liters are in each 1 of the units below:
+volume_capacity = {
+    "milliliter": 0.001,
+    "liter": 1,
+    "cup": 0.284131,
+    "pint": 0.568261,
+    "quart": 1.13652,
+    "gallon": 4.54609,
+    "fluid ounce": 0.0284131
+}
 
-# VOLUME / CAPACITY:
-# milliliters
-# liters
-# cups
-# pints
-# quarts
-# gallons
-# fluid ounces
+def convert_volume(value, from_unit, to_unit):
+    #firstly I convert into liter:
+    liter = value * volume_capacity[from_unit]
+    # then into the desired unit:
+    converted_value = liter / volume_capacity[to_unit]
+    rounded_value = round(converted_value, 2)
+    return rounded_value
 
 # TIME:
 # seconds
