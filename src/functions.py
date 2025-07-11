@@ -1,9 +1,36 @@
-# Units I want to convert:
 
-# TEMPERATURE:
-# Celsius
-# Farenheit
-# Kelvin
+
+# For the temperature functions remember to do manual testing and automated testing
+
+def celsius_to_farenheit(value):
+    farenheit = value * 1.8 + 32
+    print(farenheit)
+    return farenheit
+
+def farenheit_to_celsius(value):
+    celsius = (value - 32) / 1.8
+    print(celsius)
+    return celsius
+
+def farenheit_to_kelvin(value):
+    kelvin = (value - 32) / 1.8 + 273.15
+    print(kelvin)
+    return kelvin
+
+def kelvin_to_farenheit(value):
+    farenheit = (value - 273.15) * 1.8 + 32
+    print(farenheit)
+    return farenheit
+
+def celsius_to_kelvin(value):
+    kelvin = value + 273.15
+    print(kelvin)
+    return kelvin
+
+def kelvin_to_celsius(value):
+    celsius = value - 273.15
+    print(celsius)
+    return celsius
 
 # the distionary key corresponds to 1 unit of that measurement (eg. 1 millimeter), and the corresponding value is how many meters is in that 1 unit.
 lengths_distances = {
